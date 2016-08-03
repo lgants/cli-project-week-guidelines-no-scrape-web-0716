@@ -1,4 +1,5 @@
-class Runner
+require "pry"
+class NYTIMESRunner
 
   def call
     puts "Welcome to NYTimes search API thing!"
@@ -46,8 +47,14 @@ class Runner
       puts "There are no articles with the provided keyword"
     else
       puts "Here are the articles with the provided keyword."
-      new_search.all.each_with_index do |title, index|
-        puts "#{index+1}: #{title}"
+
+      new_search.results.each_with_index do |object, index|
+
+        object.each do |key, value|
+         if key == 'headline'
+            puts "#{index+1}: #{main}"
+        end
+        end
       end
     end
   end

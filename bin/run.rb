@@ -1,4 +1,4 @@
 require_relative '../config/environment'
+# require_relative '../app/runners/nytimes-runner'
 
-
-Runner.new.call
+NYTIMESRunner.new.call

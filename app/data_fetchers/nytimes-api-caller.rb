@@ -1,3 +1,4 @@
+require 'pry'
 class NYTimesAPIWrapper
   attr_accessor :article_hash
 
@@ -7,9 +8,10 @@ class NYTimesAPIWrapper
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     uri.query = URI.encode_www_form({
-      "api-key" => <ENV???>
+      "api-key" => "600a03a7aa294ca8a9c5ac843ace1690"
     })
     request = Net::HTTP::Get.new(uri.request_uri)
+    # binding.pry
     @article_hash = JSON.parse(http.request(request).body)
   end
 

@@ -8,10 +8,9 @@ class Search
   end
 
   def keyword_finder
-    binding.pry
-    self.search_call.article_hash[:docs].each do |article|
-      article[:keywords].each do |keyword_hash_element|
-        if keyword_hash_element[:value].downcase == search_term
+    self.search_call.article_hash["response"]["docs"].each do |article|
+      article["keywords"].each do |keyword_hash_element|
+        if keyword_hash_element["value"].downcase == @search_term
           @results << article
         end
       end
